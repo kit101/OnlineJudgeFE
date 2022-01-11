@@ -82,6 +82,39 @@
             </el-col>
           </el-col>
         </el-row>
+
+        <div class="extra-menu__header">{{$t('m.Website_ExtraMenu')}}</div>
+        <el-row :gutter="20" class="extra-menu__body">
+          <el-col :span="24">
+            <el-form label-position="right" label-width="75px">
+              <el-col :span="24" v-for="(item,index) in websiteConfig.extra_menu" :key="index">
+                <el-col :span="7">
+                  <el-form-item :label="$t('m.Website_ExtraMenu_Name')" >
+                    <el-input v-model="item.name" />
+                  </el-form-item>
+                </el-col>
+                <el-col :span="7">
+                  <el-form-item :label="$t('m.Website_ExtraMenu_Url')" >
+                    <el-input v-model="item.url" />
+                  </el-form-item>
+                </el-col>
+                <el-col :span="5.5">
+                  <el-form-item :label="$t('m.Website_ExtraMenu_Icon')">
+                    <el-input v-model="item.icon" />
+                  </el-form-item>
+                </el-col>
+                <el-col :span="3.5">
+                  <el-form-item>
+                    <el-button type="text" class="menu_del_btn" @click="handleDelMenu(item)">{{$t('m.Del_Menu')}}</el-button>
+                  </el-form-item>
+                </el-col>
+              </el-col>
+              <el-col :span="24">
+                <el-button plain :style="{'width':'100%'}" @click="handleAddExtraEmnu">{{$t('m.Add_Menu')}}</el-button>
+              </el-col>
+            </el-form>
+          </el-col>
+        </el-row>
       </el-form>
       <save @click.native="saveWebsiteConfig"></save>
     </Panel>
@@ -105,7 +138,9 @@
           email: 'email@example.com',
           tls: true
         },
-        websiteConfig: {}
+        websiteConfig: {
+          extra_menu: []
+        }
       }
     },
     mounted () {
@@ -154,7 +189,43 @@
         api.editWebsiteConfig(this.websiteConfig).then(() => {
         }).catch(() => {
         })
+      },
+      handleAddExtraEmnu () {
+        this.websiteConfig.extra_menu.push({name: '', url: '', icon: ''})
+      },
+      handleDelMenu (row) {
+        const index = this.websiteConfig.extra_menu.indexOf(row)
+        if (index > -1) {
+          this.websiteConfig.extra_menu.splice(index, 1)
+        }
       }
     }
   }
 </script>
+
+<style lang="less" scoped>
+  .extra-menu__header {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: -15px;
+    color: #333;
+    border-color: #ddd;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.025em;
+    height: 60px;
+    line-height: 45px;
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  .extra-menu__body {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .menu_del_btn {
+    color: #F56C6C;
+  }
+</style>

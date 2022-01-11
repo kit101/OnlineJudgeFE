@@ -49,6 +49,12 @@ export const m = {
   Footer: '頁尾',
   Allow_Register: '是否允許註冊',
   Submission_List_Show_All: '顯示全部題目的提交',
+  Website_ExtraMenu: '額外菜單',
+  Website_ExtraMenu_Name: '菜單名稱',
+  Website_ExtraMenu_Url: '菜單鏈接',
+  Website_ExtraMenu_Icon: '菜單圖標',
+  Add_Menu: '新 增 菜 單',
+  Del_Menu: '刪除',
   // JudgeServer.vue
   Judge_Server_Token: 'Judge 伺服器 Token',
   Judge_Server_Info: 'Judge 伺服器',

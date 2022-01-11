@@ -49,6 +49,12 @@ export const m = {
   Footer: 'Footer',
   Allow_Register: 'Allow Register',
   Submission_List_Show_All: 'Submission List Show All',
+  Website_ExtraMenu: 'Extra Menu',
+  Website_ExtraMenu_Name: 'Menu Name',
+  Website_ExtraMenu_Url: 'Menu Url',
+  Website_ExtraMenu_Icon: 'Menu Icon',
+  Add_Menu: 'Add Menu',
+  Del_Menu: 'Delete Menu',
   // JudgeServer.vue
   Judge_Server_Token: 'Judge Server Token',
   Judge_Server_Info: 'Judge Server',

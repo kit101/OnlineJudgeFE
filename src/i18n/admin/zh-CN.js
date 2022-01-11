@@ -49,6 +49,12 @@ export const m = {
   Footer: '页脚',
   Allow_Register: '是否允许注册',
   Submission_List_Show_All: '显示全部题目的提交',
+  Website_ExtraMenu: '额外菜单',
+  Website_ExtraMenu_Name: '菜单名称',
+  Website_ExtraMenu_Url: '菜单链接',
+  Website_ExtraMenu_Icon: '菜单图标',
+  Add_Menu: '新 增 菜 单',
+  Del_Menu: '删除',
   // JudgeServer.vue
   Judge_Server_Token: '判题服务器接口',
   Judge_Server_Info: '判题服务器',
