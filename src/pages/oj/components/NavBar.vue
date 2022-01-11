@@ -18,6 +18,10 @@
         <Icon type="ios-pulse-strong"></Icon>
         {{$t('m.NavStatus')}}
       </Menu-item>
+      <li class="ivu-menu-item" v-for="(item,index) in website.extra_menu" :key="index" @click="handleClickExtraMenu(item)">
+        <Icon v-if="item.icon" :type="item.icon" />
+        {{item.name}}
+      </li>
       <Submenu name="rank">
         <template slot="title">
           <Icon type="podium"></Icon>
@@ -107,6 +111,9 @@
           visible: true,
           mode: mode
         })
+      },
+      handleClickExtraMenu (menu) {
+        menu.url && window.open(menu.url)
       }
     },
     computed: {
